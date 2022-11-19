@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <p class="h2" id="page_heading">Employee Entry Form</p>
+        </div>
+    </div>
+    <form [formGroup]="employeeInformation" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-4">
+                <p class="form-heading">Personal Information</p>
+                   <div class="row">
+                        <div class="form-group col-6">
+                            <label for='employee_id'>Employee Id</label>
+                            <input id="employee_id" class="form-control" type="text" formControlName="employeeId" >
+                            <div *ngIf="employeeId && employeeId.invalid && employeeId.touched">
+                                <span class="errorMsg" *ngIf="employeeId.errors.required"> Employee Id is Required</span>
+                                <span class="errorMsg" *ngIf="employeeId.errors.minlength"> Min 5 character</span>
+                                <span class="errorMsg" *ngIf="employeeId.errors.maxlength"> Max 10 character</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='employee_name'>Employee Name</label>
+                            <input id="employee_name" class="form-control" type="text" formControlName="employeeName" >
+                            <span class="errorMsg" *ngIf="employeeName && employeeName.invalid && employeeName.touched">Employee Name is required</span>
+                        </div>
+                   </div>
+                   <div class="row">
+                        <div class="form-group col-6">
+                            <label for='employee_father_name'>Father's Name</label>
+                            <input id="employee_father_name" class="form-control" type="text" formControlName="fatherName" >
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='employee_mother_name'>Mother's Name</label>
+                            <input id="employee_mother_name" class="form-control" type="text" formControlName="motherName" >
+                        </div>
+                   </div>
+                   <div class="row">
+                        <div class="form-group col-6">
+                            <label for='employee_date_of_birth'>Date of Birth</label>
+                            <input id="employee_date_of_birth" class="form-control" type="date" formControlName="dateOfBirth" >
+                            <span class="errorMsg" *ngIf="dateOfBirth && dateOfBirth.invalid && dateOfBirth.touched">Date of Birth is required</span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='employee_gender'>Gender</label>
+                            <input id="employee_gender" class="form-control" type="text" formControlName="gender" >
+                            <span class="errorMsg" *ngIf="gender && gender.invalid && gender.touched">Gender is required</span>
+                        </div>
+                   </div>
+                   <div class="row">
+                        <div class="form-group col-6">
+                            <label for='employee_marital_status'>Marital Status</label>
+                            <input id="employee_marital_status" class="form-control" type="text" formControlName="maritalStatus" >
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='employee_religion'>Religion</label>
+                            <input id="employee_religion" class="form-control" type="text" formControlName="religion" >
+                        </div>
+                   </div>
+
+            </div>
+            <div class="col-4">
+                <div formGroupName="officialInformation">
+                    <p class="form-heading">Official Information</p>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for='employee_type'>Employee Type</label>
+                            <input id="employee_type" class="form-control" type="text" formControlName="employeeType" >
+                            <span class="errorMsg" *ngIf="employeeType && employeeType.invalid && employeeType.touched">Employee Type is required</span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='grade'>Grade</label>
+                            <input id="grade" class="form-control" type="text" formControlName="grade" >
+                            <span class="errorMsg" *ngIf="grade && grade.invalid && grade.touched">Grade is required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for='department'>Department</label>
+                            <input id="department" class="form-control" type="text" formControlName="department" >
+                            <span class="errorMsg" *ngIf="department && department.invalid && department.touched">Department is required</span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='designation'>Designation</label>
+                            <input id="designation" class="form-control" type="text" formControlName="designation" >
+                            <span class="errorMsg" *ngIf="designation && designation.invalid && designation.touched">Designation is required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for='location'>Location</label>
+                            <input id="location" class="form-control" type="text" formControlName="location" >
+                            <span class="errorMsg" *ngIf="location && location.invalid && location.touched">Location is required</span>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for='joining_date'>Joining Date</label>
+                            <input id="joining_date" class="form-control" type="date" formControlName="joiningDate" >
+                            <span class="errorMsg" *ngIf="joiningDate && joiningDate.invalid && joiningDate.touched">Joining Date is required</span>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for='tin_no'>TIN No</label>
+                            <input id="tin_no" class="form-control" type="text" formControlName="tinNo" >
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div formGroupName="address">
+                    <p class="form-heading">Address</p>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for='mobile'>Mobile</label>
+                            <input id="mobile" class="form-control" type="text" formControlName="mobile" >
+                            <span class="errorMsg" *ngIf="mobile && mobile.invalid && mobile.touched">Mobile is required</span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='present_address'>Present Address</label>
+                            <input id="present_address" class="form-control" type="text" formControlName="presentAddress" >
+                            <span class="errorMsg" *ngIf="presentAddress && presentAddress.invalid && presentAddress.touched">Present Address is required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for='permanent_address'>Permanent Address</label>
+                            <input id="permanent_address" class="form-control" type="text" formControlName="permanentAddress" >
+                            <span class="errorMsg" *ngIf="permanentAddress && permanentAddress.invalid && permanentAddress.touched">Permanent Address is required</span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for='qualification'>Qualification</label>
+                            <input id="qualification" class="form-control" type="text" formControlName="qualification" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for='remarks'>Location</label>
+                            <input id="remarks" class="form-control" type="text" formControlName="remarks" >
+                        </div>
+                        <div class="form-group col-4">
+                            <label for='email'>Email</label>
+                            <input id="email" class="form-control" type="text" formControlName="email" >
+                            <span class="errorMsg" *ngIf="email && email.invalid && email.touched">Email is required</span>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for='status'>Status</label>
+                            <input id="status" class="form-control" type="text" formControlName="status" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="employee_submit_button">
+                    <button [disabled]="employeeInformation.invalid" type="submit" class="btn btn-info">submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+        
+</div>

@@ -1,0 +1,36 @@
+mat-toolbar{
+    background-color: coral;
+}
+mat-sidenav{
+    width: 200px;
+    height: 100%;
+    background-color: #00BFFF;
+
+    ul{
+        width: 100%;
+        list-style-type: none;
+        li{
+            margin-left: 0px;
+            padding: 5px;
+            border-bottom: 1px solid black;
+            a{
+                text-decoration: none;
+                color: black;
+
+
+            }
+        }
+    }
+
+}
+.content{
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+}
+mat-sidenav-content{
+    min-height: 900px;
+}
+mat-sidenav-container{
+    height: 900px;
+}
